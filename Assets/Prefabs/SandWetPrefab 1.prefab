@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6442329314527522609}
   - component: {fileID: 3751361939724384632}
   - component: {fileID: 1103801846041497336}
+  - component: {fileID: -161273038005210363}
   m_Layer: 0
   m_Name: SandWetPrefab 1
   m_TagString: Untagged
@@ -171,3 +172,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29e5bec9eb093b94395aacc3e2ad5f11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-161273038005210363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4227694516797021345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea28beb8ba6a6854a8416a72a0cb6c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dryingTime: 20
+  dryColor: {r: 0.9, g: 0.8, b: 0.6, a: 1}
