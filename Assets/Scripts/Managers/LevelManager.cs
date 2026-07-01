@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI; // Necesario para interactuar con el Canvas y las imágenes UI
+using UnityEngine.SceneManagement; // Necesario para cambiar de escenas
 
 public class LevelManager : MonoBehaviour
 {
@@ -79,6 +80,10 @@ public class LevelManager : MonoBehaviour
             if (extraPoints < 0) extraPoints = 0;
 
             Debug.Log($"¡VICTORIA AUTOMÁTICA! Nivel completado con exactitud del {scorePercentage}%. Puntos extra: {extraPoints}");
+            
+            // Llama a GoToNextLevel después de 10 segundos
+            Invoke(nameof(GoToNextLevel), 10f);
+            
             // Aquí llamaremos al script de UI de victoria en el futuro
         }
     }
@@ -97,5 +102,32 @@ public class LevelManager : MonoBehaviour
             return true;
         }
         return false; // No queda arena húmeda
+    }
+
+    // --- Métodos de Navegación ---
+    
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToNextLevel()
+    {
+        // Asume que los niveles están en orden en el Build Settings
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.Log("No hay más niveles, volviendo al menú principal");
+            GoToMainMenu();
+        }
     }
 }
