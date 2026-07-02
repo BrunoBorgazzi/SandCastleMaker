@@ -16,6 +16,11 @@ public class LevelManager : MonoBehaviour
     [Header("Runtime Variables (No Tocar)")]
     public int currentWetSand;
     public bool isUsingWetSand = false; 
+    public bool isGameOver = false;
+
+    private float defeatTimer = 0f;
+    private bool isDefeatTimerRunning = false;
+    private const float DEFEAT_TIME_LIMIT = 20f;
 
     private void Awake()
     {
@@ -34,6 +39,27 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.LogWarning("¡Falta asignar un LevelData al LevelManager!");
+        }
+    }
+
+    private void Update()
+    {
+        if (isGameOver) return;
+
+        // Si nos quedamos sin arena húmeda, empezamos el conteo de derrota
+        if (currentWetSand <= 0 && !isDefeatTimerRunning)
+        {
+            isDefeatTimerRunning = true;
+            Debug.Log("¡Sin arena húmeda! Inicia la cuenta regresiva para la derrota...");
+        }
+
+        if (isDefeatTimerRunning)
+        {
+            defeatTimer += Time.deltaTime;
+            if (defeatTimer >= DEFEAT_TIME_LIMIT)
+            {
+                TriggerDefeat();
+            }
         }
     }
 
@@ -58,6 +84,8 @@ public class LevelManager : MonoBehaviour
 
     private void CheckWinCondition()
     {
+        if (isGameOver) return;
+
         // Asumimos que el GoalArea se instanció con el prefab del nivel
         GoalArea goalArea = FindObjectOfType<GoalArea>();
         if (goalArea == null) return;
@@ -73,7 +101,9 @@ public class LevelManager : MonoBehaviour
 
         if (isMajorityInside && fillPercentage >= 0.9f)
         {
+            isGameOver = true;
             CancelInvoke(nameof(CheckWinCondition)); // Detenemos el chequeo
+            isDefeatTimerRunning = false; // Detenemos el timer si ganamos justo a tiempo
 
             int scorePercentage = Mathf.FloorToInt(fillPercentage * 100f);
             int extraPoints = (scorePercentage - 90) * 100;
@@ -81,10 +111,48 @@ public class LevelManager : MonoBehaviour
 
             Debug.Log($"¡VICTORIA AUTOMÁTICA! Nivel completado con exactitud del {scorePercentage}%. Puntos extra: {extraPoints}");
             
-            // Llama a GoToNextLevel después de 10 segundos
-            Invoke(nameof(GoToNextLevel), 10f);
-            
-            // Aquí llamaremos al script de UI de victoria en el futuro
+            if (AudioManager.Instance != null)
+            {
+                AudioManager.Instance.PlayWinSound();
+            }
+
+            // Mostrar UI de victoria a través del controlador
+            LevelUIController uiController = FindObjectOfType<LevelUIController>();
+            if (uiController != null)
+            {
+                uiController.ShowEndGamePanel(scorePercentage, true);
+            }
+        }
+    }
+
+    private void TriggerDefeat()
+    {
+        isGameOver = true;
+        CancelInvoke(nameof(CheckWinCondition));
+        
+        // Calcular puntaje final a pesar de perder
+        GoalArea goalArea = FindObjectOfType<GoalArea>();
+        int scorePercentage = 0;
+        
+        if (goalArea != null)
+        {
+            int sandInside = goalArea.GetSandInsideCount();
+            float fillPercentage = (float)sandInside / goalArea.targetSandCount;
+            scorePercentage = Mathf.FloorToInt(fillPercentage * 100f);
+        }
+
+        Debug.Log($"¡DERROTA! Se acabó el tiempo y no lograste el 90%. Puntaje obtenido: {scorePercentage}%");
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayLoseSound();
+        }
+
+        // Mostrar UI de fin de juego a través del controlador (marcado como derrota)
+        LevelUIController uiController = FindObjectOfType<LevelUIController>();
+        if (uiController != null)
+        {
+            uiController.ShowEndGamePanel(scorePercentage, false);
         }
     }
 

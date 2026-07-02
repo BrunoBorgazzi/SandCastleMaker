@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems; // Necesario para detectar clicks sobre la UI
 
 public class SandSpawner : MonoBehaviour
 {
@@ -16,6 +17,12 @@ public class SandSpawner : MonoBehaviour
 
     private void Update()
     {
+        // Si el juego ya terminó, no permitimos ninguna interacción
+        if (LevelManager.Instance != null && LevelManager.Instance.isGameOver)
+        {
+            return;
+        }
+
         // ATAJO PARA PC: Usamos la barra espaciadora para cambiar entre Arena Húmeda y Seca
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -25,7 +32,19 @@ public class SandSpawner : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButton(0))
+        // Verificamos si el puntero (o dedo) está sobre la UI
+        bool isPointerOverUI = false;
+        if (EventSystem.current != null)
+        {
+            isPointerOverUI = EventSystem.current.IsPointerOverGameObject(); // PC
+            if (Input.touchCount > 0)
+            {
+                isPointerOverUI = EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId); // Mobile
+            }
+        }
+
+        // Solo spawneamos si NO estamos sobre la UI
+        if (Input.GetMouseButton(0) && !isPointerOverUI)
         {
             spawnTimer -= Time.deltaTime;
             
@@ -49,16 +68,23 @@ public class SandSpawner : MonoBehaviour
         // Consultamos al LevelManager qué tipo de arena estamos usando
         if (LevelManager.Instance != null && LevelManager.Instance.isUsingWetSand)
         {
-            // Intentamos gastar 1 de arena húmeda
             if (LevelManager.Instance.TryUseWetSand())
             {
                 // Instanciamos el prefab de arena húmeda (este no va a la pool)
                 Instantiate(wetSandPrefab, worldPosition, Quaternion.identity);
+                
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySpawnWetSandSound();
+                }
             }
             else
             {
-                // Si nos quedamos sin arena, ignoramos el input
-                // Aquí en el futuro podemos poner un sonido de "error"
+                // Si nos quedamos sin arena, ignoramos el input y ponemos sonido de error
+                if (AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlayErrorNoSandSound();
+                }
             }
         }
         else
