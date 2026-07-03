@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Nivel_1
   m_EditorClassIdentifier: 
   levelID: 0
-  wetSandAmount: 10
+  wetSandAmount: 200
   backgroundImage: {fileID: 21300000, guid: 17428e5390d89854fbb32ddac9cb3e4c, type: 3}
   targetShapePrefab: {fileID: 8347456577240413305, guid: 59ebff5d32337b84d82124791aa0f0c5, type: 3}

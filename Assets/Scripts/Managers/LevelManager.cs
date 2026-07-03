@@ -122,6 +122,9 @@ public class LevelManager : MonoBehaviour
             {
                 uiController.ShowEndGamePanel(scorePercentage, true);
             }
+
+            // Apagar el prefab del objetivo
+            goalArea.gameObject.SetActive(false);
         }
     }
 
@@ -153,6 +156,12 @@ public class LevelManager : MonoBehaviour
         if (uiController != null)
         {
             uiController.ShowEndGamePanel(scorePercentage, false);
+        }
+
+        // Apagar el prefab del objetivo
+        if (goalArea != null)
+        {
+            goalArea.gameObject.SetActive(false);
         }
     }
 

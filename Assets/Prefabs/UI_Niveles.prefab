@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 3510029870442057880}
   - component: {fileID: 7383238267853326245}
   - component: {fileID: 2759809868040480114}
+  - component: {fileID: 2823194108779158006}
   m_Layer: 5
   m_Name: ProximoNivel
   m_TagString: Untagged
@@ -357,6 +358,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2823194108779158006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4274674941753456225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f73a396a03bc047924ee8a3438c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4956869847632819442
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +382,7 @@ GameObject:
   - component: {fileID: 8481491096578305367}
   - component: {fileID: 5796029300955088187}
   - component: {fileID: 1203911486138219210}
+  - component: {fileID: 8678492557700440890}
   m_Layer: 5
   m_Name: SandToggle
   m_TagString: Untagged
@@ -477,6 +491,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8678492557700440890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4956869847632819442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f73a396a03bc047924ee8a3438c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5721866086521727774
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +728,7 @@ GameObject:
   - component: {fileID: 2804185411501235004}
   - component: {fileID: 3893977531514448372}
   - component: {fileID: 8963424801439910678}
+  - component: {fileID: 5771683177635976583}
   m_Layer: 5
   m_Name: Reintentar
   m_TagString: Untagged
@@ -810,6 +837,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5771683177635976583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8421388989496394006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f73a396a03bc047924ee8a3438c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8458098418897033861
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,6 +861,7 @@ GameObject:
   - component: {fileID: 8115870658334983038}
   - component: {fileID: 7356056254054041321}
   - component: {fileID: 1738235886349524314}
+  - component: {fileID: 7366578643045773320}
   m_Layer: 5
   m_Name: ReturnMenuButton
   m_TagString: Untagged
@@ -930,3 +970,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7366578643045773320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8458098418897033861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f73a396a03bc047924ee8a3438c576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

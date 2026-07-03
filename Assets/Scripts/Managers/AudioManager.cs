@@ -8,12 +8,16 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Source")]
     [Tooltip("El componente AudioSource para reproducir SFX (Efectos de sonido)")]
     public AudioSource sfxSource;
+    [Tooltip("El componente AudioSource exclusivo para reproducir sonidos de la interfaz")]
+    public AudioSource uiSource;
 
     [Header("Clips de Sonido (Asignar en Inspector)")]
     public AudioClip winSound;
     public AudioClip loseSound;
-    public AudioClip spawnWetSandSound;
+    [UnityEngine.Serialization.FormerlySerializedAs("spawnWetSandSound")]
+    public AudioClip spawnSandSound;
     public AudioClip errorNoSandSound;
+    public AudioClip buttonClickSound;
 
     private void Awake()
     {
@@ -27,8 +31,16 @@ public class AudioManager : MonoBehaviour
             {
                 sfxSource = GetComponent<AudioSource>();
             }
+            if (uiSource == null)
+            {
+                // Si no se asignó en el inspector, creamos uno nuevo en runtime
+                uiSource = gameObject.AddComponent<AudioSource>();
+            }
+            
             sfxSource.playOnAwake = false;
             sfxSource.loop = false;
+            uiSource.playOnAwake = false;
+            uiSource.loop = false;
         }
         else
         {
@@ -46,14 +58,28 @@ public class AudioManager : MonoBehaviour
         PlayClip(loseSound);
     }
 
-    public void PlaySpawnWetSandSound()
+    public void PlaySpawnSandSound()
     {
-        PlayClip(spawnWetSandSound);
+        PlayClip(spawnSandSound);
     }
 
     public void PlayErrorNoSandSound()
     {
         PlayClip(errorNoSandSound);
+    }
+
+    public void PlayButtonSound()
+    {
+        if (buttonClickSound != null && uiSource != null)
+        {
+            // Variamos el pitch aleatoriamente entre 1.0 (normal) y 1.20 (más agudo)
+            uiSource.pitch = Random.Range(1.0f, 1.20f);
+            uiSource.PlayOneShot(buttonClickSound);
+        }
+        else
+        {
+            Debug.LogWarning("Falta asignar el AudioClip buttonClickSound en el AudioManager.");
+        }
     }
 
     private void PlayClip(AudioClip clip)

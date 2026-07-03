@@ -75,7 +75,7 @@ public class SandSpawner : MonoBehaviour
                 
                 if (AudioManager.Instance != null)
                 {
-                    AudioManager.Instance.PlaySpawnWetSandSound();
+                    AudioManager.Instance.PlaySpawnSandSound();
                 }
             }
             else
@@ -92,7 +92,11 @@ public class SandSpawner : MonoBehaviour
             // Si usamos arena seca, pedimos una a la Pool como siempre
             if (SandPoolManager.Instance != null)
             {
-                SandPoolManager.Instance.SpawnSand(worldPosition);
+                GameObject spawnedSand = SandPoolManager.Instance.SpawnSand(worldPosition);
+                if (spawnedSand != null && AudioManager.Instance != null)
+                {
+                    AudioManager.Instance.PlaySpawnSandSound();
+                }
             }
         }
     }
