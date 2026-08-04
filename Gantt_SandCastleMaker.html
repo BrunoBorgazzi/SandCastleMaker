@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gantt Chart - SandCastleMaker</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 40px auto;
+            max-width: 1000px;
+            color: #333;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        .mermaid {
+            margin: 30px 0;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .print-btn {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .print-btn:hover {
+            background-color: #2980b9;
+        }
+        @media print {
+            .print-btn {
+                display: none; /* Ocultar el botón al imprimir/guardar PDF */
+            }
+            body {
+                margin: 0;
+                max-width: 100%;
+            }
+            .mermaid {
+                box-shadow: none;
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">
+        📄 Guardar como PDF
+    </button>
+    
+    <h1>Planificación y Cronograma: SandCastleMaker</h1>
+    <p>A continuación se muestra el diagrama de Gantt basándonos en tu resumen: el MVP completado al 90% y las próximas 3 semanas enfocadas en los detalles visuales restantes, testing, builds y publicación en Google Play Console.</p>
+
+    <div class="mermaid">
+    gantt
+        title Diagrama de Gantt - SandCastleMaker
+        dateFormat  YYYY-MM-DD
+        axisFormat  %d/%m
+        
+        section Fase 1 (90%)
+        MVP (Core, Pool, UI)         :done, f1, 2026-07-09, 7d
+
+        section Fase 2 (Features)
+        Shaders (Arena fluida)       :active, feat1, 2026-07-16, 4d
+        Sistema Partículas           :active, feat2, 2026-07-16, 4d
+
+        section Fase 3 (Testing)
+        Testeo y Balance             :active, qa1, 2026-07-16, 2026-07-22
+
+        section Fase 4 (Builds)
+        Adaptar UI Mobile            :build1, 2026-07-20, 5d
+        Builds Finales               :build2, after build1, 2d
+        Google Console               :milestone, subida, 2026-07-26, 0d
+
+        section Fase 5 (Revisión)
+        Verificadores (Google)       :crit, rev1, 2026-07-26, 7d
+        Ajustes finales              :rev2, 2026-08-01, 2d
+        Juego Terminado              :milestone, fin, 2026-08-03, 0d
+    </div>
+
+    <h2>Resumen de Hitos y Tiempos</h2>
+    <ul>
+        <li><strong>Semana Pasada (Fase 1):</strong> Realizamos el grueso del trabajo. Toda la mecánica de gravedades, arena seca/húmeda, pools de objetos y UI ya es funcional.</li>
+        <li><strong>Semana Actual a Mitad de la Próxima (Fases 2 y 3):</strong> Aprovechamos para cerrar lo que está listado en tu roadmap (Shaders para que la arena luzca mejor y Partículas) en paralelo con el testing exhaustivo y balanceo de niveles. Termina alrededor del 22 de julio.</li>
+        <li><strong>Resto de la Próxima Semana (Fase 4):</strong> Foco exclusivo en adaptar la UI para asegurar que se vea perfecto en cualquier celular, generar las builds definitivas y realizar el push a la Google Console el fin de semana.</li>
+        <li><strong>Tercera Semana (Fase 5):</strong> Es el tiempo de gracia o demora esperado por las verificaciones de Google. Al finalizar esa ventana (principios de Agosto), el juego estará 100% finalizado y publicado.</li>
+    </ul>
+
+    <!-- Importar la librería de Mermaid -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+</body>
+</html>

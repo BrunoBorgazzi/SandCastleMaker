@@ -914,6 +914,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6520958447444605610, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6698521868930806722, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: objectsToHideOnPause.Array.data[0]
+      value: 
+      objectReference: {fileID: 1415071559}
+    - target: {fileID: 7598283413726772913, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -932,7 +944,7 @@ SceneRoots:
   - {fileID: 1601571941}
   - {fileID: 1155054445}
   - {fileID: 616354627}
-  - {fileID: 1415071562}
   - {fileID: 2123497782480911121}
   - {fileID: 1885725803}
   - {fileID: 920165811}
+  - {fileID: 1415071562}

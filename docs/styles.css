@@ -1,0 +1,475 @@
+:root {
+    /* UAI Formal Theme - Light Mode */
+    --bg-color: #ffffff;
+    --text-main: #1f2937;
+    --text-muted: #4b5563;
+    --primary: #8a1538; /* UAI Burgundy/Bordeaux */
+    --primary-glow: rgba(138, 21, 56, 0.1);
+    --secondary: #c29b62; /* Gold accent */
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(138, 21, 56, 0.15);
+    
+    --badge-high: #d97706; /* Darker for light bg */
+    --badge-medium: #2563eb;
+    --badge-critical: #dc2626;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow: hidden; /* Evitar el scroll del navegador general */
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Background effects */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #ffffff 30%, rgba(138, 21, 56, 0.03) 70%, rgba(138, 21, 56, 0.15) 100%);
+}
+
+
+
+/* Slide Navigation Dots */
+.slider-nav {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 100;
+}
+
+.nav-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid rgba(138, 21, 56, 0.3);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-dot:hover {
+    border-color: var(--primary);
+    background: rgba(138, 21, 56, 0.1);
+}
+
+.nav-dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(138, 21, 56, 0.3);
+}
+
+/* Presentation Container */
+#presentation {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* Slide Styling */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 4rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.slide-content {
+    max-width: 1000px;
+    width: 100%;
+    max-height: 90vh; /* Permite scroll interno si es muy largo */
+}
+
+.slide-scrollable {
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+/* Custom Scrollbar for internal scroll */
+.slide-scrollable::-webkit-scrollbar {
+    width: 8px;
+}
+.slide-scrollable::-webkit-scrollbar-track {
+    background: rgba(138, 21, 56, 0.05); 
+    border-radius: 4px;
+}
+.slide-scrollable::-webkit-scrollbar-thumb {
+    background: var(--primary); 
+    border-radius: 4px;
+}
+
+/* Hero Slide */
+.slide-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 2rem;
+    background: transparent;
+    padding: 0;
+}
+
+.uai-logo {
+    max-width: 280px;
+    height: auto;
+    object-fit: contain;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--primary);
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.student-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-top: 2rem;
+    background: rgba(138, 21, 56, 0.08);
+    padding: 0.6rem 2rem;
+    border-radius: 30px;
+    border: 1px solid rgba(138, 21, 56, 0.15);
+}
+
+.scroll-indicator {
+    margin-top: 4rem;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--primary);
+    font-weight: 600;
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.scroll-indicator:hover {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+.arrow-down {
+    margin-top: 0.5rem;
+    font-size: 1.5rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Glass Cards */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--primary); /* Accento formal en borde superior */
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--primary);
+}
+
+.subtitle-inline {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(194, 155, 98, 0.2);
+    padding: 0.2rem 0.8rem;
+    border-radius: 20px;
+}
+
+.content-block {
+    margin-bottom: 1.8rem;
+}
+
+.content-block h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.content-block h4 {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 600;
+}
+
+/* Typography & Lists */
+p {
+    margin-bottom: 1rem;
+}
+
+.styled-list {
+    list-style: none;
+}
+
+.styled-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.styled-list li::before {
+    content: "■";
+    position: absolute;
+    left: 0;
+    color: var(--secondary);
+    font-size: 0.8em;
+    top: 0.25em;
+}
+
+/* Highlight Box */
+.highlight-box {
+    background: rgba(138, 21, 56, 0.05);
+    border-left: 4px solid var(--primary);
+    padding: 1.2rem 1.5rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1rem;
+}
+
+/* Grid Cards */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.mini-card {
+    background: #ffffff;
+    border: 1px solid var(--glass-border);
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.mini-card h4 {
+    margin-top: 0;
+    color: var(--primary);
+    border-bottom: 1px solid var(--glass-border);
+    padding-bottom: 0.5rem;
+}
+
+/* Timeline */
+.timeline {
+    border-left: 2px solid var(--secondary);
+    padding-left: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -1.85rem;
+    top: 0.4rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+}
+
+/* Tables */
+.table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+}
+
+th, td {
+    padding: 0.8rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+th {
+    background: rgba(138, 21, 56, 0.05);
+    font-weight: 700;
+    color: var(--primary);
+}
+
+tr:hover td {
+    background: rgba(138, 21, 56, 0.02);
+}
+
+/* Badges */
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.badge.high { background: rgba(245, 158, 11, 0.15); color: var(--badge-high); }
+.badge.medium { background: rgba(59, 130, 246, 0.15); color: var(--badge-medium); }
+.badge.critical { background: rgba(239, 68, 68, 0.15); color: var(--badge-critical); }
+
+/* Responsive / Mobile */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px; /* Un poquito más grande para mejor lectura */
+    }
+
+    .slide { 
+        padding: 2.5rem 1rem 3rem 1rem; /* Reducimos el padding general */
+        align-items: flex-start; 
+    }
+
+    .slide-content {
+        max-height: 88vh; /* Aprovechamos casi toda la altura */
+    }
+
+    /* Quitamos el "modal" para dejar el texto libre y aprovechar todo el ancho */
+    .glass-card { 
+        background: transparent;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        border-top: none;
+    }
+
+    .uai-logo {
+        max-width: 180px;
+    }
+
+    h1 { 
+        font-size: 2rem; 
+        margin-bottom: 1rem;
+    }
+
+    .subtitle {
+        font-size: 1.1rem;
+    }
+
+    .student-name {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .section-title { 
+        font-size: 1.6rem; 
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        border-bottom-width: 3px; /* Reforzamos la línea ya que no hay borde de tarjeta */
+    }
+
+    .content-block {
+        margin-bottom: 1.5rem;
+    }
+
+    .content-block h3 {
+        font-size: 1.25rem;
+    }
+
+    /* Slider Nav abajo horizontal en móviles */
+    .slider-nav { 
+        top: auto;
+        bottom: 1rem;
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+        background: rgba(255, 255, 255, 0.9); /* Fondecito sutil para que los botones se vean bien */
+        padding: 0.3rem 1rem;
+        border-radius: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .nav-dot {
+        width: 12px;
+        height: 12px;
+    }
+}
