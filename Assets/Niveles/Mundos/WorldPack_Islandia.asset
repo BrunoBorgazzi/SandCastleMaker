@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39c4e4e0c4a4304fa4f7813b0ee002f, type: 3}
+  m_Name: WorldPack_Islandia
+  m_EditorClassIdentifier: 
+  packId: dlc_islandia
+  packTitle: 'ISLANDIA: PLAYA HELADA'
+  difficultyLabel: Dificultad Extrema
+  coinPrice: 300
+  isUnlockedByDefault: 0
+  isComingSoon: 1
+  worldBackground: {fileID: 21300000, guid: 6a13b9901fa1462da14b70b3682f604d, type: 3}
+  headerPlaque: {fileID: 21300000, guid: 4750bbf3010a4e20a5fbde0871b6aa52, type: 3}
+  storeCard: {fileID: 21300000, guid: 44d0ac9f05074e09b86cff64582ee6b9, type: 3}
+  sceneNames:
+  - NivelIslandia1
+  - NivelIslandia2
+  - NivelIslandia3
+  - NivelIslandia4
+  levelDisplayNames:
+  - COSTA HELADA
+  - OCASO BOREAL
+  - NOCHE GLACIAL
+  - VENTISCA POLAR
+  levelButtonSprites:
+  - {fileID: 21300000, guid: 37050761593040f3bfdcfd66a38061fe, type: 3}
+  - {fileID: 21300000, guid: e555052302d0421bb9205a4bc8db82b3, type: 3}
+  - {fileID: 21300000, guid: b19f22b417804b50af9aaebd5d37366d, type: 3}
+  - {fileID: 21300000, guid: 78c7bb3d47a9426eb85913a1342edb84, type: 3}
+  hazardType: 3

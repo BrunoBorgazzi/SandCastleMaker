@@ -11,9 +11,15 @@ public class KillZone : MonoBehaviour
         // 2. Si efectivamente es un bloque de arena...
         if (sand != null)
         {
-            // 3. Le decimos al Manager que lo agarre, lo apague y lo devuelva a la fila
-            if (SandPoolManager.Instance != null)
+            // Si es arena húmeda (tiene WetSandBehavior o joints), la destruimos
+            // para no contaminar el Object Pool de arena seca.
+            if (sand.isWet || sand.GetComponent<WetSandBehavior>() != null)
             {
+                Destroy(sand.gameObject);
+            }
+            else if (SandPoolManager.Instance != null)
+            {
+                // 3. Si es arena seca, la devolvemos al pool para reciclarla
                 SandPoolManager.Instance.ReturnSandToPool(sand.gameObject);
             }
         }

@@ -12,7 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f4851ecfabd914ea7dba05b404b4a2, type: 3}
   m_Name: Nivel_2
   m_EditorClassIdentifier: 
-  levelID: 0
+  levelID: 2
+  regionThemeId: base
+  unlimitedWetSand: 1
   wetSandAmount: 100
   backgroundImage: {fileID: 21300000, guid: aa0fad77b9785c942acd0ecf9d7e8628, type: 3}
   targetShapePrefab: {fileID: 8347456577240413305, guid: 63182a5b3b6445e4fbae243edca3a306, type: 3}
+  targetTimeSeconds: 38
+  maxOverdrawRatioForStar: 0.14
+  wetSandSaveRatio: 0.25
+  tideMaxDurationSeconds: 68
+  waveSwingAmplitude: 0.85
+  waveFrequency: 0.23
+  windHazardIntensity: 0.15
+  brushRadiusWorld: 0.14

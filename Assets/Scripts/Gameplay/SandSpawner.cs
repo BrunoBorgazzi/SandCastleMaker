@@ -73,6 +73,12 @@ public class SandSpawner : MonoBehaviour
                 // Instanciamos el prefab de arena húmeda (este no va a la pool)
                 Instantiate(wetSandPrefab, worldPosition, Quaternion.identity);
                 
+                // Emisión de partículas VFX
+                if (SandVFXManager.Instance != null)
+                {
+                    SandVFXManager.Instance.PlaySpawnVFX(worldPosition, true);
+                }
+
                 if (AudioManager.Instance != null)
                 {
                     AudioManager.Instance.PlaySpawnSandSound();
@@ -93,9 +99,18 @@ public class SandSpawner : MonoBehaviour
             if (SandPoolManager.Instance != null)
             {
                 GameObject spawnedSand = SandPoolManager.Instance.SpawnSand(worldPosition);
-                if (spawnedSand != null && AudioManager.Instance != null)
+                if (spawnedSand != null)
                 {
-                    AudioManager.Instance.PlaySpawnSandSound();
+                    // Emisión de partículas VFX
+                    if (SandVFXManager.Instance != null)
+                    {
+                        SandVFXManager.Instance.PlaySpawnVFX(worldPosition, false);
+                    }
+
+                    if (AudioManager.Instance != null)
+                    {
+                        AudioManager.Instance.PlaySpawnSandSound();
+                    }
                 }
             }
         }

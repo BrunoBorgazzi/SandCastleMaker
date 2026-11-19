@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39c4e4e0c4a4304fa4f7813b0ee002f, type: 3}
+  m_Name: WorldPack_PlayaLocal
+  m_EditorClassIdentifier: 
+  packId: pack_base
+  packTitle: PLAYA LOCAL
+  difficultyLabel: Dificultad Base
+  coinPrice: 0
+  isUnlockedByDefault: 1
+  worldBackground: {fileID: 21300000, guid: 40879dc22e654abe8a1a3c6cdedd0ae1, type: 3}
+  headerPlaque: {fileID: 21300000, guid: 2cebce7931534f23a8e000cbd5a064bc, type: 3}
+  storeCard: {fileID: 21300000, guid: e5ef7ab181bc4ee9951ef3710d206fb8, type: 3}
+  sceneNames:
+  - Nivel1
+  - Nivel2
+  - Nivel3
+  - Nivel4
+  levelDisplayNames:
+  - SOLEADO
+  - ATARDECER
+  - NOCHE VENTOSA
+  - TORMENTA SUAVE
+  levelButtonSprites:
+  - {fileID: 21300000, guid: faa4815581854bfb92b648c5bb54839a, type: 3}
+  - {fileID: 21300000, guid: 7d7863c2a01746d1a6bbcb197654c5ed, type: 3}
+  - {fileID: 21300000, guid: 0863952d00f44621b9483e814781c574, type: 3}
+  - {fileID: 21300000, guid: e89fc4ec74e5438f8277a411cddd6521, type: 3}
+  hazardType: 0

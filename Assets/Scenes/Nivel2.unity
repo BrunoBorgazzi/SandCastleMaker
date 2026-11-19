@@ -122,6 +122,55 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &88568774
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88568776}
+  - component: {fileID: 88568775}
+  m_Layer: 0
+  m_Name: TideWaterOverlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &88568775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88568774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e2006eac36105945b3b4c597a590fe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tideWaterMaterial: {fileID: 2100000, guid: 370ea5b5a82aa2c48829e675ca07c91a, type: 2}
+  tideProgress01: 0
+  currentBaseTideY: 0
+  currentWaveFrontY: 0
+  isWaveSurging: 0
+--- !u!4 &88568776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88568774}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &91351628
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +391,8 @@ MonoBehaviour:
   currentWetSand: 0
   isUsingWetSand: 0
   isGameOver: 0
+  elapsedTime: 0
+  lastStarsEarned: 0
 --- !u!4 &616354627
 Transform:
   m_ObjectHideFlags: 0
@@ -373,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &920165810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,7 +470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1155054443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +543,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1381080677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1381080679}
+  - component: {fileID: 1381080678}
+  m_Layer: 0
+  m_Name: SandSculptCanvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1381080678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381080677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ba6a6bd2406a14281876ff5e43010d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brushRadiusWorld: 0.14
+  useInspectorBrushSize: 1
+  drySandBrushMultiplier: 1.32
+  wetSandBrushMultiplier: 0.75
+  faintGuideVisibility: 0.07
+  sandSculptMaterial: {fileID: 2100000, guid: 9a8e90216a8530449b5d9c67860d935e, type: 2}
+  canvasPaddingMultiplier: {x: 1.45, y: 1.35}
+  texelsPerWetSandUnit: 16
+  outsideDrawingPenaltyWeight: 0.45
+  drySandWaveErosionSpeed: 1900
+  wetSandWaveErosionSpeed: 58
+  beachWetTrailDecaySpeed: 28
+--- !u!4 &1381080679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381080677}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1406292491
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1406292492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,7 +662,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1415071560
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -764,23 +871,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2547735218960109871, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -93
-      objectReference: {fileID: 0}
     - target: {fileID: 6041146786636767383, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 566170222}
+    - target: {fileID: 6041146786636767383, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: m_SortingOrder
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105578647586048488, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: blueprintSheetSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf31c8a286ec449b8347ddd3ee964e37, type: 3}
+    - target: {fileID: 6105578647586048488, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: blueprintButtonSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 55e1c70e15354e2db43ccabf59876831, type: 3}
+    - target: {fileID: 6698521868930806722, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: objectsToHideOnPause.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6698521868930806722, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
       propertyPath: objectsToHideOnPause.Array.data[0]
       value: 
-      objectReference: {fileID: 1415071559}
+      objectReference: {fileID: 1381080677}
+    - target: {fileID: 6698521868930806722, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: objectsToHideOnPause.Array.data[1]
+      value: 
+      objectReference: {fileID: 88568774}
+    - target: {fileID: 8822297864118904677, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aa0fad77b9785c942acd0ecf9d7e8628, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2085662329915131127, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2027129671}
   m_SourcePrefab: {fileID: 100100000, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+--- !u!1 &1568645658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2085662329915131127, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
+  m_PrefabInstance: {fileID: 1568645657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601571939
 GameObject:
   m_ObjectHideFlags: 0
@@ -797,7 +932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1601571940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,12 +1035,35 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8822297864118904677, guid: b6166d84eb09c8b45894f290bc500d23, type: 3}
   m_PrefabInstance: {fileID: 1568645657}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1568645658}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &2027129671
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1568645658}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 1
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -920,3 +1078,5 @@ SceneRoots:
   - {fileID: 1568645657}
   - {fileID: 1885725803}
   - {fileID: 920165811}
+  - {fileID: 1381080679}
+  - {fileID: 88568776}

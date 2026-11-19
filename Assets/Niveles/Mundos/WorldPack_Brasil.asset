@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b39c4e4e0c4a4304fa4f7813b0ee002f, type: 3}
+  m_Name: WorldPack_Brasil
+  m_EditorClassIdentifier: 
+  packId: dlc_brasil
+  packTitle: "BRASIL: R\xCDO CALIENTE"
+  difficultyLabel: Dificultad Media
+  coinPrice: 150
+  isUnlockedByDefault: 0
+  iapProductId: sandcastle_dlc_brasil
+  worldBackground: {fileID: 21300000, guid: 02a157d9a7f64994b53ac8dc88705831, type: 3}
+  headerPlaque: {fileID: 21300000, guid: 6ec0866d92ce4fa79691f66b70d38e30, type: 3}
+  storeCard: {fileID: 21300000, guid: 8b0f7aca79154fcf8d2f6b6c30e94a25, type: 3}
+  sceneNames:
+  - NivelDLC1
+  - NivelDLC2
+  - NivelDLC3
+  - NivelDLC4
+  levelDisplayNames:
+  - SOL TROPICAL
+  - OCASO TROPICAL
+  - "NOCHE DE R\xC1FAGAS"
+  - TORMENTA TROPICAL
+  levelButtonSprites:
+  - {fileID: 21300000, guid: de51bc720af149589ea3fbf5a9637e1e, type: 3}
+  - {fileID: 21300000, guid: 21e29612305942698f748882927c7fb4, type: 3}
+  - {fileID: 21300000, guid: 9a7fa33643a3459786160b9517bb17ca, type: 3}
+  - {fileID: 21300000, guid: 709996ddb49d49f3b827fb2dc32519fc, type: 3}
+  hazardType: 1

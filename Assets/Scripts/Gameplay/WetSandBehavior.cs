@@ -14,11 +14,13 @@ public class WetSandBehavior : MonoBehaviour
     
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private SandBlock sandBlock;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        sandBlock = GetComponent<SandBlock>();
     }
 
     private void Start()
@@ -26,6 +28,11 @@ public class WetSandBehavior : MonoBehaviour
         // La arena húmeda empieza estática (como un pincelazo sólido)
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.velocity = Vector2.zero;
+
+        if (sandBlock != null)
+        {
+            sandBlock.isWet = true;
+        }
         
         StartCoroutine(DryRoutine());
     }
@@ -39,5 +46,10 @@ public class WetSandBehavior : MonoBehaviour
         
         // Cambiar color para dar feedback visual de que se secó
         spriteRenderer.color = dryColor;
+
+        if (sandBlock != null)
+        {
+            sandBlock.isWet = false;
+        }
     }
 }

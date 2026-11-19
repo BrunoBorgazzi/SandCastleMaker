@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30f4851ecfabd914ea7dba05b404b4a2, type: 3}
+  m_Name: LevelData_DLC2_PuenteCoral
+  m_EditorClassIdentifier: 
+  levelID: 102
+  regionThemeId: brasil
+  unlimitedWetSand: 1
+  wetSandAmount: 90
+  backgroundImage: {fileID: 21300000, guid: 4684c293251444a98600654e5559788a, type: 3}
+  targetShapePrefab: {fileID: 8347456577240413305, guid: 274ce467dead6b64b9ac0cc38e88e5ad, type: 3}
+  targetTimeSeconds: 35
+  maxOverdrawRatioForStar: 0.14
+  wetSandSaveRatio: 0.25
+  tideMaxDurationSeconds: 61
+  waveSwingAmplitude: 0.95
+  waveFrequency: 0.25
+  windHazardIntensity: 0.35
+  brushRadiusWorld: 0.14

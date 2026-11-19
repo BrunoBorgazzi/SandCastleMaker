@@ -76,3 +76,26 @@ crashlytics-build.properties
 
 # Herramientas privadas del proyecto
 /[Aa]ssets/[Ss]cripts/[Ee]ditor/
+
+# Documentos de facultad, diseño, Gantt y agentes locales (no forman parte del build)
+.agents/
+docs/
+Produccion de Videojuegos/
+Gantt_*.html
+Gantt_*.png
+Logo_UAI.png
+Auditoria_QA_*.md
+Diseno_UX_UI_*.md
+Flujo_Pantallas.md
+Guia_Creacion_*.md
+Plan_Implementacion_*.md
+*.pdf
+*.csv
+
+# Keystores y credenciales privadas (NUNCA subir a Git)
+*.keystore
+*.jks
+*.p12
+*.pem
+*.key
+.env
